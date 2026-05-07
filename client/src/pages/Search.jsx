@@ -15,6 +15,10 @@ const Search = () => {
   const [showMoreBtn, setShowMoreBtn] = useState(false);
   //   console.log(listings);
 
+  console.log(sideBarSearchData);
+
+  const currentSort = sideBarSearchData.sort + "_" + sideBarSearchData.order;
+
   useEffect(() => {
     const urlParams = new URLSearchParams(location.search);
     const searchTermFromUrl = urlParams.get("searchTerm");
@@ -133,7 +137,7 @@ const Search = () => {
             <label className="font-semibold">Sort:</label>
             <select
               onChange={handleChange}
-              defaultValue={"created_at_desc"}
+              value={currentSort}
               id="sort_order"
               className="p-3 border rounded-lg"
             >
